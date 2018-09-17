@@ -1,0 +1,15 @@
+#
+**/logs
+**/Lib
+**/lib
+**/__pycache__
+**/Scripts
+**/Include
+logs/
+*.exe
+*.lib
+*.dll
+*.pyd
+*.bat
+*.c
+*.pyc
