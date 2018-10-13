@@ -13,3 +13,6 @@ logs/
 *.bat
 *.c
 *.pyc
+**/.pytest_cache
+pyvenv.cfg
+pip-selfcheck.json
