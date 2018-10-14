@@ -21,6 +21,11 @@ reptiles = []
 #Default parameter values are evaluated from left to right when the function definition is executed. 
 #This means that the expression is evaluated once, when the function is defined, 
 #and that the same “pre-computed” value is used for each call. 
+#  The default value is evaluated only once. 
+
+# This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. 
+# For example, the following function accumulates the arguments passed to it on subsequent calls:
+
 #This is especially important to understand when a default parameter is a mutable object, 
 #such as a list or a dictionary: if the function modifies the object (e.g. by appending an item to a list), 
 #the default value is in effect modified.

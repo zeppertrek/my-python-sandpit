@@ -1,7 +1,4 @@
-#1. Python web servers
-#2. Embedding Python  in Apache HTTP server, NGINX 
-#3. Eclipse for Python development
-#4. Stand alone WSGI servers 
+#Duck typing example 
 
 
 class Duck:
