@@ -1,0 +1,8 @@
+# Assume that virtual environment exists
+# Activate virtual environment 
+
+# This will launch the IDLE editor
+python -m idlelib.idle
+
+# Starting IDLE using the default Python installation
+idle.bat 
