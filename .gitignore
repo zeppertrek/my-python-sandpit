@@ -16,3 +16,5 @@ logs/
 **/.pytest_cache
 pyvenv.cfg
 pip-selfcheck.json
+~*.docx
+~*.doc

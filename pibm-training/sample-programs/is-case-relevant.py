@@ -7,4 +7,5 @@ FIRSTNAME = 'Try'
 
 # We declared text data 
 
+# This will work, but is this really good programming
 print (firstname + FIRSTNAME)
