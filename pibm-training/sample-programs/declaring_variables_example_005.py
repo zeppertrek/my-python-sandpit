@@ -1,4 +1,4 @@
-# var-first-try.py
+# declaring_variables_example_005.py
 firstname = "Nice"
 lastname  = 'Try' 
 
@@ -6,5 +6,5 @@ lastname  = 'Try'
 # Notice we do not specify the data type 
 
 # We declared text data 
-
+# Concatenating the two strings 
 print (firstname + lastname)
