@@ -1,4 +1,4 @@
-#simple_while_loop.py
+#while_loop_example_001.py
 
 count = 1 # Initialize counter
 while count <= 5: # Should we continue?

@@ -1,4 +1,4 @@
-#while_loop_with_else_001.py
+#while_loop_with_else_example_001.py
 #
 count = 0
 sum = 0 ;
