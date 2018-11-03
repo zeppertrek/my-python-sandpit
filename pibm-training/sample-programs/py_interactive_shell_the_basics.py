@@ -32,4 +32,15 @@ help> keywords
 ...
 
 
+>>> var1 = [0, 1, 2]
+>>> var2=var1
+>>> print (var2)
+[0, 1, 2]
+>>> var1 += [3]
+>>> print (var2)
+[0, 1, 2, 3]
+>>> print (var1)
+[0, 1, 2, 3]
+
+
 >>> exit()
