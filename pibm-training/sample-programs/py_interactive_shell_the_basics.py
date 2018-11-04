@@ -1,7 +1,10 @@
-#py_interactive_shell_the_basics.py
-#This is not meant to be run as a Python program / module
-# Helps to use the Interactive Shell 
+# py_interactive_shell_the_basics.py
+# This is not meant to be run as a Python program / module
+# Helps to understand / use the Interactive Shell 
 # run python to launch the interactive shell 
+
+# The interactive shell really encourages you to be creative
+# Run any kind of statement without repercussion :-)
 
 # import this
 # displays some interesting stuff about Python 
@@ -42,11 +45,24 @@ help> keywords
 >>> print (var1)
 [0, 1, 2, 3]
 
+>>> x = 1
+>>> id(x)
+
+>>> type(x)
+
 
 >>> exit()
 
 
+>>> 1 + '2'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> str(1) + '2'
+'12'
+>>>
 
+>>> '{0} ----- {1} -------{2}'.format ("a", "b", "c")
 
 
 ######################################################################################

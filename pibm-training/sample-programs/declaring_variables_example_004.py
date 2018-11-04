@@ -14,3 +14,6 @@ print ("Type of starter is  ", type(starter))
 
 starter = 100
 print ("Type of starter is  ", type(starter))
+
+
+print("{} is {} and {} is {}.".format( "Killing", "business", "business", "good"))
