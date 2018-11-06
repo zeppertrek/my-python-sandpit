@@ -3,6 +3,7 @@
 
 # 
 x = 1
+y = x 
 print ("Value of x is ", x)
 x = "a" 
 print ("Value of x is now ", x)
