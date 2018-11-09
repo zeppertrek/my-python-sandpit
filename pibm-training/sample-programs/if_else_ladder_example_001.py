@@ -4,7 +4,7 @@ day_of_the_week = int(input('Please enter the day of the week [ 1 to 7] which st
 if (day_of_the_week == 1):
     print('Day of the week entered as ', day_of_the_week, ' is Monday...bravo')
 else:
-    if (day_of_the_week == 2):
+      if (day_of_the_week == 2):
         print('Day of the week entered as ', day_of_the_week, ' is Tuesday...bravo')
     else:
         if (day_of_the_week == 3):

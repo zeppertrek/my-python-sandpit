@@ -1,4 +1,5 @@
-#tuple_negative_indexing.py
+# tuple_negative_indexing.py
+# different ways of iterating through a sequence of objects/values 
 
 my_tuple = ('p','e','r','m','i','t')
 

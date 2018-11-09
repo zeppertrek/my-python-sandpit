@@ -10,6 +10,7 @@ print ("Ok, in the program, I keep changing the type of object ")
 
 
 starter = "Dim sums"
+# Using the built in type(), one can identify the type of the variable
 print ("Type of starter is  ", type(starter))
 
 starter = 100

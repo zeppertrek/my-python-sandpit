@@ -1,6 +1,6 @@
 
-#only_tuples.py
-#Once created
+#tuple_example_001.py 
+#Once created tuples cannot be modified 
 
 # Simple tuple 
 Runners = ( 'Chester', 'Bennington', 'Bill', 'Gates', 'Derulo' )
