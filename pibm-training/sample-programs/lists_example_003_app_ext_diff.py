@@ -1,6 +1,6 @@
 # lists_example_003_app_ext_diff.py
-#
-append: Appends object at the end.
+## 
+# append: Appends object at the end.
 
 x1 = [1, 2, 3]
 x1.append([4, 5])

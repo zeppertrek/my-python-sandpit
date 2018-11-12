@@ -1,5 +1,5 @@
 #dict_example_003_comprehension.py
-# Comprehension is also present for lists 
+# Comprehension is also present for dictionaries 
 
 
 squares = {x: x*x for x in range(6)}
