@@ -5,3 +5,5 @@ codexy = {"A001": 1234, "B001": 1000000, "C002": 4789,  "F002": 2000, "X002": 20
 
 for izzy in codexy:
     print(codexy[izzy])
+	
+	
