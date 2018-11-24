@@ -18,4 +18,6 @@ def area_and_perimeter (l,b):
 def fencing_cost (l:int, b:int, cost:int) ->tuple:
     return ( 2*l+2*b, (2*l+2*b)*cost)
 
-	
+math.sqrt(x)
+
+

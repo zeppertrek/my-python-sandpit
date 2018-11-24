@@ -5,3 +5,4 @@
 import func_example_003_main_module
 
 print ("Area of the rectangle using imported module is ", func_example_003_main_module.area_of_rectangle (100,20))
+

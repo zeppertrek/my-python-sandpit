@@ -13,5 +13,8 @@ def printthreelines (firstlinechar, middlelinechar, thirdlinechar):
  
 printthreelines("#", "X", "#")
 
+printthreelines("X", "X", "X")
+
+
 
 
