@@ -1,4 +1,4 @@
-#pandas_example_001.py
+#pandas_basics_example_001.py
 
 #import the pandas library and aliasing as pd
 import matplotlib.pyplot as plt
@@ -18,5 +18,8 @@ data = [['Princeton',155550],['Harvard',11222],['Yale',13000]]
 df = pd.DataFrame(data,columns=['University','Students'])
 print (df)
 
-df.plot(kind='bar',x='University',y='Students')
+#Plotting a bar graph 
+df.plot(kind='barh',x='University',y='Students')
 plt.show()
+
+

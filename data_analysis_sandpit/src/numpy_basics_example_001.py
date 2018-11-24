@@ -1,4 +1,4 @@
-#numpy_example_001.py
+#numpy_basics_example_001.py
 
 # declaring numpy arrays 
 
