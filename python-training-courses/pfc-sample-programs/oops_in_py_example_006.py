@@ -1,5 +1,9 @@
 # oops_in_py_example_006.py 
 
+# This won't work, so what are the workarounds ?
+
+# The program looks nice, but will break at run time.  Think about how you will solve this problem. 
+
 class Dog:
 
     def __init__(self, name):
