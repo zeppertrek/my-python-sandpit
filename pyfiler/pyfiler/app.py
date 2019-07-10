@@ -5,8 +5,16 @@
 # Logging module - similar to Log4J 
 # Logging in an application is mandatory 
 import logging
-
 import logging.config
+
+# Revisit this.  How do you make the absolute paths/location of the packages independent from where the main program is called 
+# pyfiler\pyfiler - All files are here
+# From the parent, I am running python -m pyfiler
+# Or I can fo into pyfiler\pyfiler and run the program 
+#
+import pyfiler.services.SolrServices as solr 
+
+
 
 def displayOSParameters():
     pass
@@ -14,22 +22,22 @@ def displayOSParameters():
 def loadConfigParameters():
     pass 
 
-def processDataFromCSVFiles()
+def processDataFromCSVFiles():
     pass
 
-def insertDataIntoMongoDB()
+def insertDataIntoMongoDB():
     pass
 
-def insertDataIntoSOLR()
+def insertDataIntoSOLR():
+    solr.moreAboutMe()
+
+def insertDataIntoKafka():
     pass
 
-def insertDataIntoKafka()
-    pass
-
-def insertDataIntoRedis()
+def insertDataIntoRedis():
     pass
 #
-def insertDataIntoPostGreSQL()
+def insertDataIntoPostGreSQL():
     pass 	
 
 
@@ -59,18 +67,18 @@ def run():
 	
     print ("Executing app.run")
 	
-	# 
-	processDataFromCSVFiles()
-	#
-	insertDataIntoMongoDB()
-	#
-	insertDataIntoSOLR()
-	#
-	insertDataIntoKafka()
-	#
-	insertDataIntoRedis()
-	#
-	insertDataIntoPostGreSQL()
+    # 
+    processDataFromCSVFiles()
+    #
+    insertDataIntoMongoDB()
+    #
+    insertDataIntoSOLR()
+    #
+    insertDataIntoKafka()
+    #
+    insertDataIntoRedis()
+    #
+    insertDataIntoPostGreSQL()
 	
 	
 #if __name__== "__main__":
