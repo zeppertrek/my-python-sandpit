@@ -12,8 +12,13 @@ import logging.config
 # From the parent, I am running python -m pyfiler
 # Or I can fo into pyfiler\pyfiler and run the program 
 #
-import pyfiler.services.SolrServices as solr 
 
+import pyfiler.services.SolrServices as pysolrpy
+import pyfiler.services.MongoDBServices as pymongopy 
+import pyfiler.services.KafkaServices as pykafkapy 
+import pyfiler.services.RedisServices as pyredispy
+import pyfiler.services.PostGresSQLServices as pypostgrespy
+import pyfiler.services.CSVServices as pycsvpy
 
 
 def displayOSParameters():
@@ -23,23 +28,27 @@ def loadConfigParameters():
     pass 
 
 def processDataFromCSVFiles():
-    pass
+    #pass
+    pycsvpy.moreAboutMe()
 
 def insertDataIntoMongoDB():
-    pass
+    pymongopy.moreAboutMe()
+#    pass 
 
 def insertDataIntoSOLR():
-    solr.moreAboutMe()
+    pysolrpy.moreAboutMe()
 
 def insertDataIntoKafka():
-    pass
+    pykafkapy.moreAboutMe()
+    #pass 
 
 def insertDataIntoRedis():
-    pass
-#
-def insertDataIntoPostGreSQL():
-    pass 	
+    pyredispy.moreAboutMe()
+    #pass 
 
+def insertDataIntoPostGresSQL():
+    pypostgrespy.moreAboutMe()
+    #pass
 
 def setLoggingConfig():
     # logging.basicConfig(format='%(message)s', level=logging.INFO)
@@ -78,7 +87,7 @@ def run():
     #
     insertDataIntoRedis()
     #
-    insertDataIntoPostGreSQL()
+    insertDataIntoPostGresSQL()
 	
 	
 #if __name__== "__main__":
