@@ -1,6 +1,8 @@
 #func_with_decorators_001.py 
 
 # This contains logic that lays the groundwork for function and class decorators 
+# func_with_decorators_001.py , func_with_decorators_002.py, func_with_decorators_003.py, func_with_decorators_004.py, func_with_decorators_005.py 
+# These 5 programs play around with functions.  Some examples can be really weird 
 
 def concat_two_strings(name1, name2):
     z = name1 + name2
