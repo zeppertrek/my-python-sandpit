@@ -20,3 +20,9 @@ def foo(func):
 
 print(foo(math.sin))
 print(foo(math.cos))
+
+
+# at run time, we have added an attribute to a function 
+# Remember a function is a first class object !
+foo.xcount = 1 
+print ( "foo.xcount",1)
