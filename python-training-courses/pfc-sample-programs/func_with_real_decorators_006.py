@@ -32,8 +32,8 @@ def add_trace_info(func):
 # In what sequence do the decorators execute - top to down or down to top 
 # In the example below, how many times does "I am being executed " get printed ?.  Why does it get printed once only ?. 
 # 
-@add_log_info     ( log_level = 1 )
-@add_trace_info   ( trace_level = 100) 
+@add_log_info     
+@add_trace_info    
 def execute_me(*args, **kwargs):
     list1 = args
     for x in args:

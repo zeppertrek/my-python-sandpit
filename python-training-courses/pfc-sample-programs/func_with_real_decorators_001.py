@@ -49,3 +49,22 @@ ordinary22()
 ordinary2 = make_pretty2(ordinary2)
 ordinary2()
 
+##########################################################################################3
+
+from functools import wraps
+
+def xxgreeting(func):
+    @wraps(func)
+    def xxfunction_wrapper(x):
+        """ function_wrapper of greeting """
+        print("Hi, " + func.__name__ + " returns:")
+        # Note here return is used instea of just func(x)
+        return func(x)
+    return xxfunction_wrapper
+
+@xxgreeting
+def  xxmyfunc ( num1):
+    return num1 + 1 
+
+print ("Executing xxmyfunc ------")
+print ( xxmyfunc (100) )
