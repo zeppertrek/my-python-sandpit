@@ -36,6 +36,47 @@ def func_within_funcs_03():
     print ("QQQ. This is outside inner function, inside outer function!")
 
 
+#########################################################################################
+# multiple funcs in a single func 
+def functions_within_a_func():
+    print ( "ZZZ1. This is outer function!")
+    def inner_function_01():
+        print  ("ZZZ_01. This is inner function, inside outer function!")
+    def inner_function_02():
+        print  ("ZZZ_02. This is inner function, inside outer function!")
+    def inner_function_03():
+        print  ("ZZZ_03. This is inner function, inside outer function!")
+    def inner_function_04():
+        print  ("ZZZ_04. This is inner function, inside outer function!")
+    def inner_function_05():
+        print  ("ZZZ_05. This is inner function, inside outer function!")
+    print ("ZZZ3. This is outside inner function, inside outer function!")
+    inner_function_01()
+    inner_function_02()
+    inner_function_03()
+    inner_function_04()
+    inner_function_05()
+    
+    return [inner_function_01, inner_function_02, inner_function_03, inner_function_04, inner_function_05 ]
+###############################################################################################
+
+def wheels_within_wheels():
+    print ( "ZZZ1. This is outer function!")
+    def inner_function_01():
+        print  ("ZZZ_01. This is inner function, inside outer function!")
+        def inner_inner_func_01():
+            print ("ZZZ_01_ZZZ_01 : This is the inner inner func within - inner_function_01")
+        inner_inner_func_01()
+        return inner_inner_func_01
+    def inner_function_02():
+        print  ("ZZZ_02. This is inner function, inside outer function!")
+    print ("ZZZ3. This is outside inner function, inside outer function!")
+    inner_function_01()
+    inner_function_02()
+    return [inner_function_01, inner_function_02]
+
+
+
 	
 def main():
     # This is significant
@@ -59,5 +100,18 @@ def main():
  
     func_within_funcs_03()
 
+    # Use of a list to return multiple values, here functions, from a single function 
+    fn1, fn2, fn3, fn4, fn5 = functions_within_a_func() 
+    print ( "functions_within_a_func()  - Types of fn1, fn2, fn3, fn4, fn5 are ",  type(fn1), type(fn2),type(fn3),type(fn4),type(fn5) ) 
+	
+    # Use of a list to return multiple values, here functions, from a single function 
+    fn1, fn2 = wheels_within_wheels() 
+    print ( "wheels_within_wheels() - Types of fn1, fn2 ",  type(fn1), type(fn2) ) 
+    print ("name of fn1 is ", fn1.__name__)    
+    #fn1.inner_inner_func_01() 	
+	
+    fn1_inner = fn1()
+    fn1_inner()
+    print ("name of fn1_inner is ", fn1_inner.__name__)
 main()
 	

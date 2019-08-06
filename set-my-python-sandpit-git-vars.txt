@@ -1,0 +1,4 @@
+
+git config --global user.name "zeppertrek python"
+git config --global user.email "zeppertrek@gmail.com"
+git config --list
