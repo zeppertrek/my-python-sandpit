@@ -4,7 +4,7 @@
 # WIP 
 # Goal - Undetermined number of arguments for the decorator as well as the functions to be decorated 
 # 
-#
+# The code below is quite mysterious. Explore 
 #
 
 
