@@ -66,6 +66,18 @@ def hello():
 hello()
 
 #####################################################################################3
+#####################################################################################
+#
+#
+#
+#  The decorator has arguments 
+#
+#  The function to be decorated may or may not have arguments .  How is this case handled ?. 
+#
+#
+
+
+
 
 
 
