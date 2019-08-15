@@ -24,6 +24,25 @@ def sleep(func=None, *, seconds=None, msg=None):
         time.sleep(seconds)
         return func(*args, **kwargs)
     return wrapper
+
+
+# Parameters when passed must be named 
+def logarythmic(func=None, *, loglevel=None, logmsg=None):
+    if func is None:
+        return partial(logarythmic, loglevel=loglevel, logmsg=logmsg)
+
+    loglevel = loglevel if loglevel else -99
+    logmsg = logmsg if logmsg else 'Logmessage is not available' 
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Log Level and Log Message", loglevel, logmsg)
+        return func(*args, **kwargs)
+    return wrapper
+
+
+
+
 	
 	
 if __name__ == '__main__':
@@ -54,3 +73,20 @@ if __name__ == '__main__':
 
     print('\nWith two opt args: seconds and msg\n---')
     call_n_times(hello)
+	
+	
+    @logarythmic
+    def hello():
+        print ("Hello cruel world")
+    hello()
+
+    @logarythmic ( loglevel=202020, logmsg='This is a really bizarre log message')
+    def hello():
+        print ("Hello cruel world")
+    hello()
+
+
+    @logarythmic (logmsg='This is a really bizarre log message')
+    def hello():
+        print ("Hello cruel world")
+    hello()

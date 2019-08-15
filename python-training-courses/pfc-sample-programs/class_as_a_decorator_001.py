@@ -1,9 +1,9 @@
 # class_as_a_decorator_001.py 
 import functools
 
-# State can be maintained 
+# State can be maintained when using a class as a decorator 
 class CountCalls:
-    # __init__ needs to take func 
+    # __init__ needs to take func  as an input parameter 
     def __init__(self, func):
         # One needs to use the functools.update_wrapper() function instead of @functools.wraps for stand alone functions 
         functools.update_wrapper(self, func)
