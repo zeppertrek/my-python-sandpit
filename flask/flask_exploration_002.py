@@ -11,7 +11,7 @@
 # 
 #
 
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, jsonify
 app = Flask(__name__)
 
 # What if I define app2 = Flask() or app2 = Flask ("imthedim") ? 
@@ -24,6 +24,10 @@ def hello_admin():
 def hello_guest(guest):
    return 'Hello %s as Guest' % guest
 
+@app.route("/jsontest")
+def users_api():
+    users = {"1":"Sanjiv", "2": "Rohit", "3" : "Ananya", "4": "Muttliputtli" }
+    return jsonify(users)
 
 # Demonstrating the use of url_for and redirect 
 @app.route('/user/<name>')
