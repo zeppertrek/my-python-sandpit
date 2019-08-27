@@ -6,13 +6,12 @@
 # User session management in Flask using the flask_login extension 
 # 
 from flask import Flask, session, redirect, url_for, escape, request
-#from flask_login import login_manager
+#from flask_login import various modules 
 from flask_login import LoginManager, login_required, login_user, logout_user 
-# Custom User class defined in models 
-
 # Simulating a DB.  Storing users in a dictionary 
 #import db.user_db.user_db_list  as user_db_list
 from db.user_db import user_db_list   
+# Custom User class defined in models 
 # import models.User  as User
 from models.User import User
 
@@ -30,6 +29,7 @@ login_manager.init_app(app)
 ###################################################################
 #
 # What does this do ? 
+# This callback is used to reload the user object from the user ID stored in the session
 @login_manager.user_loader
 def user_loader(email):
     if email not in user_db_list.keys():
@@ -41,6 +41,9 @@ def user_loader(email):
 
 
 # What does this do ? 
+# Sometimes you want to login users without using cookies, such as using header values or an api key passed as a query argument. 
+# In these cases, you should use the request_loader callback. 
+# This callback should behave the same as your user_loader callback, except that it accepts the Flask request instead of a user_id
 @login_manager.request_loader
 def request_loader(request):
     email = request.form.get('email')
@@ -102,7 +105,7 @@ def login():
         user = User()
         user.id = email
         login_user(user)
-        return redirect(url_for('protected'))
+        return redirect(url_for('login_success'))
 
     return 'Bad login'
 	
@@ -110,7 +113,11 @@ def login():
 @login_required
 def protected():
     return 'Logged in as: ' + flask_login.current_user.id
-	
+
+@app.route('/login_success')
+def login_success():
+    return 'Managed to login successfully'
+
 
 if __name__ == '__main__':
     app.config['PROPAGATE_EXCEPTIONS'] = True
