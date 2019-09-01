@@ -1,5 +1,5 @@
-# flask_exploration_005.py  
-# set FLASK_APP=flask_exploration_005.py
+# flask_exploration_006.py  
+# set FLASK_APP=flask_exploration_006.py
 # set FLASK_DEBUG=1
 # python -m flask run
 
@@ -7,13 +7,13 @@
 # 
 from flask import Flask, session, redirect, url_for, escape, request
 #from flask_login import various modules 
-from flask_login import LoginManager, login_required, login_user, logout_user 
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user 
 # Simulating a DB.  Storing users in a dictionary 
 #import db.user_db.user_db_list  as user_db_list
 from db.user_db import user_db_list   
 # Custom User class defined in models 
 # import models.User  as User
-from models.User import User
+from models.SteroidUser import SteroidUser
 
 
 app = Flask(__name__)
@@ -25,69 +25,26 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+# 
+# Customizing the Login Process 
+login_manager.login_view = "/login"
+login_manager.login_message = "You gotta login"
+login_manager.login_message_category = "info"
 
-###################################################################
-#
-# What does this do ? 
-# This callback is used to reload the user object from the user ID stored in the session
+
+
+#  provide a user_loader callback. This callback is used to reload the user object from the user ID stored in the session. 
+#  It should take the unicode ID of a user, and return the corresponding user object.
+# 
 @login_manager.user_loader
 def user_loader(email):
     if email not in user_db_list.keys():
         return None 
 
-    user = User()
+    user = SteroidUser()
     user.id = email
     return user
 
-
-# What does this do ? 
-# Sometimes you want to login users without using cookies, such as using header values or an api key passed as a query argument. 
-# In these cases, you should use the request_loader callback. 
-# This callback should behave the same as your user_loader callback, except that it accepts the Flask request instead of a user_id
-@login_manager.request_loader
-def request_loader(request):
-    email = request.form.get('email')
-    if email not in user_db_list.keys():
-        return
-
-    user = User()
-    user.id = email
-
-    # DO NOT ever store passwords in plaintext and always compare password
-    # hashes using constant-time comparison!
-    user.is_authenticated = request.form['password'] == user_db_list[email]['password']
-
-    return user
-
-
-###########################
-# Create your own User Class 
-# implement these properties and methods:
-# is_authenticated, is_active, is_anonymous, 
-# get_id() - This method must return a unicode that uniquely identifies this user
-#@login_manager.user_loader
-#def load_user(user_id):
-#    return User.get_id(user_id)
-	
-
-# Views that require your users to be logged in can be decorated with the login_required decorator
-@app.route("/logout")
-@login_required
-def logout():
-    logout_user()
-    return 'Logged out'
-	
-# Views that require your users to be logged in can be decorated with the login_required decorator
-@app.route("/settings")
-@login_required
-def settings():
-    pass
-	
-# provide a callback for login failures:
-@login_manager.unauthorized_handler
-def unauthorized_handler():
-    return 'Unauthorized'
-	
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -102,22 +59,43 @@ def login():
 
     email = request.form['email']
     if request.form['password'] == user_db_list[email]['password']:
-        user = User()
+        user = SteroidUser()
+        user.email = email 
         user.id = email
-        login_user(user)
+        # Understand significance of remember=True 
+        #login_user(user, remember=True)
+        # login_user(user, remember=False, duration=None, force=False, fresh=True)
+        bLogFlag = login_user(user, remember=True, force=True)
+        print ( "User's Email ID is : " + user.get_id())
+        if bLogFlag:
+            print ( "login_user(user) returned TRUE")
+        else:
+            print ( "login_user(user) returned FALSE")
         return redirect(url_for('login_success'))
 
     return 'Bad login'
-	
-@app.route('/protected')
-@login_required
-def protected():
-    return 'Logged in as: ' + flask_login.current_user.id
 
+# Views that require your users to be logged in can be decorated with the login_required decorator
+@app.route("/user_info")
+@login_required
+def user_info():
+    # After logging in, how do I retrieve the credentials of the logged in user 
+    mstr = "Current User status - "    
+    if current_user.is_authenticated:
+        mstr = mstr + "authenticated"	
+    return  "User Info" + mstr 
+
+
+# Views that require your users to be logged in can be decorated with the login_required decorator
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return 'Logged out'
+	
 @app.route('/login_success')
 def login_success():
     return 'Managed to login successfully'
-
 
 if __name__ == '__main__':
     app.config['PROPAGATE_EXCEPTIONS'] = True

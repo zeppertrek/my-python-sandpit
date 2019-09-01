@@ -1,6 +1,9 @@
-# User.py 
+# SteroidUser.py 
 # 
-class User():
+
+from flask_login import UserMixin
+
+class SteroidUser(UserMixin):
     """User class 
 
     """
@@ -13,6 +16,7 @@ class User():
         self.email = "test@test.com"
         self.password = "xyz"
         self.authenticated = False 
+        self.is_active = True 
         
 
     def is_active(self):
@@ -30,3 +34,9 @@ class User():
     def is_anonymous(self):
         """False, as anonymous users aren't supported."""
         return False
+
+    def is_active(self):
+        """False, as anonymous users aren't supported."""
+        return True
+
+		
