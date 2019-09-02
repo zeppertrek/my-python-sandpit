@@ -43,6 +43,7 @@ def user_loader(email):
 
     user = SteroidUser()
     user.id = email
+    user.email = email 
     return user
 
 
