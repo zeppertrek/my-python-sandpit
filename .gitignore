@@ -1,4 +1,5 @@
 #
+**/not-to-be-checked-in
 **/rest_api_demo
 **/logs
 **/Lib
@@ -21,3 +22,10 @@ pip-selfcheck.json
 ~*.doc
 ~*.tmp
 config.json
+*.egg-info/
+**/venv
+**/instance
+.coverage
+htmlcov/
+**/dist
+**/build
