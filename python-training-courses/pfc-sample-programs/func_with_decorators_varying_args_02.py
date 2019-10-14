@@ -48,6 +48,7 @@ def logarythmic(func=None, *, loglevel=None, logmsg=None):
 if __name__ == '__main__':
 
     def call_n_times(func, n=3):
+        # Use of "_" - means that one does not need to use the iterator value 
         for _ in range(n):
             func()
 
