@@ -61,8 +61,8 @@ def logout():
     #db.session.commit()
     logout_user()
     flash('Goodbye!')
-    #return redirect(url_for('recipes.index'))
-    return 'Logged Out' 
+    return redirect(url_for('recipes.index'))
+    #return 'Logged Out' 
 
 
 

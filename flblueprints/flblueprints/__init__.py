@@ -1,5 +1,5 @@
 # [SANJIV NAGRAJ ] 
-# init.py for flblueprints
+# init.py for flblueprints\flblueprints 
 from flask import Flask
 from flask_login import LoginManager
 #
@@ -27,6 +27,7 @@ login.login_view = "users.login"
 def create_app(config_filename=None):
     app = Flask(__name__, instance_relative_config=True)
     #app.config.from_pyfile(config_filename)
+    # Read up on the use of the instance folder that one can use in Flask 
     app.config.from_pyfile ("D:/workspaces/my-python-sandpit/flblueprints/instance/flask.cfg")
     initialize_extensions(app)
     register_blueprints(app)
@@ -47,6 +48,7 @@ def initialize_extensions(app):
     # Flask-Login configuration
     from flblueprints.models import SteroidUser
     #from . import db
+    # need to fully understand the logic for correctly referencing a package/module/function while importing 
     from flblueprints.users.db.user_db import user_db_list	
 	
     #def load_user(user_id):
