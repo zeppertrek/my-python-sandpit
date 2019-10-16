@@ -1,5 +1,6 @@
 # [SANJIV NAGRAJ ] 
-# init.py for flblueprints\flblueprints 
+# __init__.py for flblueprints\flblueprints
+# Initialization code for this package  
 from flask import Flask
 from flask_login import LoginManager
 #

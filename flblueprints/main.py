@@ -1,9 +1,11 @@
 # main.py
+# This is the main calling program for the flblueprints flask web application 
 # set FLASK_APP=main.py
 # set FLASK_DEBUG=1
 # python -m flask run
 
 # Read more to understand why this import works !. create_app is inside __init__.py 
+# If the module/func is not found, then python looks into __init__.py for the package 
 from flblueprints import create_app
 
 # Call the Application Factory function to construct a Flask application instance

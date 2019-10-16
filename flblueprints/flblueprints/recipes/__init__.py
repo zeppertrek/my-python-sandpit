@@ -1,5 +1,6 @@
 #[SANJIV NAGRAJ]
 #flblueprints/recipes/__init__.py
+# Initialization code for this package 
 
 """
 The recipes Blueprint handles the creation, modification, deletion,
