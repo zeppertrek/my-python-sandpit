@@ -3,6 +3,9 @@
 # Initialization code for this package  
 from flask import Flask
 from flask_login import LoginManager
+import os
+
+
 #
 #from flask_sqlalchemy import SQLAlchemy
 #from flask_bcrypt import Bcrypt
@@ -26,12 +29,61 @@ login.login_view = "users.login"
 ######################################
 
 def create_app(config_filename=None):
+    #
+    # Logging
+    import logging 	
+    from logging.config import dictConfig
+    #from flblueprints.logging_config import flloggingconfig
+    dictConfig({
+        'version': 1,
+        'formatters': {'default': {
+        'format': '[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
+        }},
+        'handlers': {'wsgi': {
+            'class': 'logging.StreamHandler',
+            'stream': 'ext://flask.logging.wsgi_errors_stream',
+            'formatter': 'default'
+        }},
+        'root': {
+            'level': 'INFO',
+            'handlers': ['wsgi']
+        }
+})
+
+	
+    #logging.config.dictConfig(dictConfig)
+
     app = Flask(__name__, instance_relative_config=True)
     #app.config.from_pyfile(config_filename)
     # Read up on the use of the instance folder that one can use in Flask 
-    app.config.from_pyfile ("D:/workspaces/my-python-sandpit/flblueprints/instance/flask.cfg")
+    # app.config.from_pyfile ("D:/workspaces/my-python-sandpit/flblueprints/instance/flask.cfg")
+	# The instance folder is designed to not be under version control and be deployment specific
+    # There are different ways of obtaining the run time configuration 
+
+    #1. From a file  
+    #app.config.from_pyfile (config_filename)
+
+    # Both statements below did not work 
+    #from flblueprints.config import BaseConfig, DevelopmentConfig, TestingConfig, ProductionConfig
+    #from flblueprints import config
+    # works when config.py is located in the root folder 
+    # 	
+    environment_type = os.environ.get('FLASK_ENV')
+    if environment_type == 'development':
+        #Uses objects.   
+        app.config.from_object("config.DevelopmentConfig")
+    elif environment_type == 'development':
+        app_config = TestingConfig()
+    elif environment_type == 'production':
+        app_config = ProductionConfig()
+    else:
+        app_config = DevelopmentConfig()        	
+	
+    #app.config.from_object(app_config)
+	
     initialize_extensions(app)
     register_blueprints(app)
+    app.logger.info ("Blueprints initialized and registered")
     return app
 
 
