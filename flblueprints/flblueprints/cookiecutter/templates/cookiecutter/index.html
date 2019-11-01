@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% set title = 'Homepage' %}
+
+{% block content %}
+    <br>
+    <h1>Welcome to the Cookie Cutter home page</h1>
+    <br>
+    <p><em>Existing user? </em><a href="{{ url_for('users.login') }}">Login!</a></p>
+{% endblock %}

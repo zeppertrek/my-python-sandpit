@@ -2,24 +2,8 @@
 # This file will defined the logging configuration for the Python web application 
 # 
 
-flloggingconfig({
-    'version': 1,
-    'formatters': {'default': {
-        'format': '[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
-    }},
-    'handlers': {'wsgi': {
-        'class': 'logging.StreamHandler',
-        'stream': 'ext://flask.logging.wsgi_errors_stream',
-        'formatter': 'default'
-    }},
-    'root': {
-        'level': 'INFO',
-        'handlers': ['wsgi']
-    }
-})
-
-
-filebasedlogging({
+# Note - this is a dictionary 
+LOGGING_CONFIG  = {
     'version': 1,
     'formatters': {
         'default': {'format': '%(asctime)s - %(levelname)s - %(message)s', 'datefmt': '%Y-%m-%d %H:%M:%S'}
@@ -35,7 +19,7 @@ filebasedlogging({
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'default',
-            'filename': log_path,
+            'filename': "d:/temp/log.txt",
             'maxBytes': 1024,
             'backupCount': 3
         }
@@ -47,4 +31,4 @@ filebasedlogging({
         }
     },
     'disable_existing_loggers': False
- })
+}
