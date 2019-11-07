@@ -29,3 +29,7 @@ config.json
 htmlcov/
 **/dist
 **/build
+**/deploy-test-001
+**/deploy-test
+**/deploy-test-002
+**/python-saml-master
