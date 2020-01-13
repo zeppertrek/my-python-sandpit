@@ -1,0 +1,38 @@
+# MANIFEST.in
+# Project - flblueprints
+# Author - Sanjiv Nagraj
+
+include README.md
+include config.py
+include main.py
+#
+graft instance/flask.cfg
+global-exclude *.pyc
+#
+#
+# 
+#recursive-include flblueprints/templates *
+#recursive-include flblueprints/static *
+#
+#recursive-include flblueprints/cookiecutter/static *
+#recursive-include flblueprints/cookiecutter/templates *
+#
+#recursive-include flblueprints/recipes/static *
+#recursive-include flblueprints/recipes/templates *
+#
+#recursive-include flblueprints/users/static *
+#recursive-include flblueprints/users/templates *
+
+#recursive-include instance/ *
+
+graft flblueprints/templates
+graft flblueprints/static
+
+graft flblueprints/cookiecutter/static 
+graft flblueprints/cookiecutter/templates 
+
+graft flblueprints/recipes/static 
+graft flblueprints/recipes/templates 
+#
+graft flblueprints/users/static 
+graft flblueprints/users/templates 

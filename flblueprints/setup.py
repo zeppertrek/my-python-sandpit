@@ -1,7 +1,10 @@
-# setup.py for flblueprints 
-# [SANJIV NAGRAJ]
-# 
-# Is MANIFEST.in required ? 
+# setup.py
+# setup.py file for generating distributable using the standard method 
+# Project - flblueprints  
+# Sanjiv Nagraj
+#
+# MANIFEST.in file required - This needs to be confirmed  
+#
 
 from setuptools import find_packages, setup
 from os import path
