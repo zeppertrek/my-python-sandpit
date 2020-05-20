@@ -1,6 +1,7 @@
 #
 **/not-to-be-checked-in
 **/rest_api_demo
+**/*.whl
 **/logs
 **/Lib
 **/lib
