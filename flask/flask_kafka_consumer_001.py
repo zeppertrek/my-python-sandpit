@@ -42,6 +42,7 @@ def handle_kafcons():
 
     c.subscribe(['covid19'])
     i = 0 ;
+    print ("After subscribe and before While TRUE")
     while True:
         msg = c.poll(1.0)
 
