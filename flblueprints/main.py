@@ -1,5 +1,9 @@
 # main.py
 # This is the main calling program for the flblueprints flask web application 
+#
+#  With blueprints, we can think of choices as functional versus divisional. follow best practices over here. 
+#  This project uses the divisional approach. 
+# 
 # set FLASK_APP=main.py
 # set FLASK_DEBUG=1
 # python -m flask run
@@ -10,6 +14,8 @@
 # export/set FLASK_ENV=development
 # Always set FLASK_ENV/FLASK_DEBUG at the OS level before launching the flask app NEVER in your program 
 # Do not enable debug mode when deploying in production
+# export/set DATABASE_URL="postgresql+driver://<hostname>:port_number/<db_name>
+# docker run -d -p 5432:5432 -v postgres-data:/var/lib/postgresql/data --name postgres1 postgres
 
 # Read more to understand why this import works !. create_app is inside __init__.py 
 # If the module/func is not found, then python looks into __init__.py for the package - that's why !
