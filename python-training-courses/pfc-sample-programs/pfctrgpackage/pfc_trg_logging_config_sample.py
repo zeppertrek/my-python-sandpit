@@ -39,3 +39,46 @@ LOGGING_CONFIG  = {
         }
     },
 }
+
+
+#
+# disable_existing_loggers 
+# 1.formatters
+#
+#
+# 2. handlers 
+#
+#
+# 3. loggers  
+#
+#
+#
+#
+SUPER_DUPER_LOG_CONFIG  = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'default': {'format': '%(asctime)s - %(levelname)s - %(message)s', 'datefmt': '%Y-%m-%d %H:%M:%S'}
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+            'stream': 'ext://sys.stdout'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'default',
+            'filename': pfc_trg_log_file_name,
+            'mode' : 'w'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'INFO',
+            'handlers': ['console', 'file']
+        }
+    },
+}
