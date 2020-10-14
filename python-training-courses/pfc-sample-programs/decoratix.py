@@ -4,32 +4,46 @@
 #################################################################################
 import functools
 
-print (":::1::: The basics of decorators - Understanding the concept")
+print (":::1.1::: The basics of decorators - Understanding the concept")
 
 def  decorama ( funcster ):
     #
     def innerfunc():
         #
-        print ("decorama-->innerfunc-PRE")
+        print (":::1.1::: decorama-->innerfunc-PRE")
         funcster()
-        print ("decorama-->innerfunc-PRE- DONE DUNNA DUN")
+        print (":::1.1::: decorama-->innerfunc-PRE- DONE DUNNA DUN")
     return innerfunc
 
 
 def inneedofadeco():
-    print ("I am in need of a deco - ")
+    print (":::1.1::: I am in need of a deco - ")
 
 inneedofadeco()
 #
-print ("Now for the decoration magic")
+print (":::1.1::: Now for the decoration magic")
 inneedofadeco = decorama ( inneedofadeco )
 inneedofadeco()
 
 # There is side effect.  The function after the decoration operation has lost its bearings i.e. name
-print ( "name of the function after the decoration ---- {} ".format(inneedofadeco.__name__))
+print ( ":::1.1::: name of the function after the decoration ---- {} ".format(inneedofadeco.__name__))
 
 ################################################################################
 
+
+def  decounwrapped ( funcster ):
+    #
+    print (":::1.2::: decounwrapped  - {} ".format (funcster.__name__))
+    return funcster
+
+@decounwrapped
+def eazzypeazzy():
+    print (":::1.2::: Example of an unwrapped decorator  - ")
+
+eazzypeazzy()
+
+
+####################################################################################
 print ("PART 2 ::: Understanding the concept of decorators a bit more")
 
 def  decoranama ( funcster, x,y ):
