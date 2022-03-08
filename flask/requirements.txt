@@ -9,7 +9,7 @@ Flask-Login==0.4.1
 flask-redis==0.4.0
 Flask-RESTful==0.3.7
 Flask-SQLAlchemy==2.4.1
-httpie==2.0.0
+httpie==3.1.0
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.1
