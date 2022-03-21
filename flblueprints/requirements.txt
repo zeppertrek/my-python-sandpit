@@ -8,5 +8,5 @@ MarkupSafe==1.1.1
 psycopg2==2.8.4
 -e git+https://github.com/zeppertrek/my-python-sandpit.git@327bbed15b9676db13b0dbc8ef91df593081339e#egg=snflblueprints&subdirectory=flblueprints
 SQLAlchemy==1.3.13
-waitress==1.3.1
+waitress==2.1.1
 Werkzeug==0.16.0
